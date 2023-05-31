@@ -1,17 +1,19 @@
-import * as React from "react"
-import { Link, graphql, PageProps } from "gatsby"
+import React from 'react';
+import { Link, graphql, PageProps } from 'gatsby';
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Bio from '../components/bio';
+import Layout from '../components/layout';
+import Seo from '../components/seo';
 
-const BlogPostTemplate = ({
-  data: { previous, next, site, markdownRemark: post },
+function BlogPostTemplate({
+  data: {
+    previous, next, site, markdownRemark: post,
+  },
   location,
-}:PageProps<GatsbyTypes.Query&{previous:GatsbyTypes.Query['markdownRemark'],next:GatsbyTypes.Query['markdownRemark']}>) => {
-  const siteTitle = site?.siteMetadata?.title || `Title`
+}:PageProps<GatsbyTypes.Query&{previous:GatsbyTypes.Query['markdownRemark'], next:GatsbyTypes.Query['markdownRemark']}>) {
+  const siteTitle = site?.siteMetadata?.title || 'Title';
 
-  if(!post) return;
+  if (!post) return;
   return (
     <Layout location={location} title={siteTitle}>
       <article
@@ -24,7 +26,7 @@ const BlogPostTemplate = ({
           <p>{post.frontmatter?.date}</p>
         </header>
         <section
-          dangerouslySetInnerHTML={{ __html: post.html||'' }}
+          dangerouslySetInnerHTML={{ __html: post.html || '' }}
           itemProp="articleBody"
         />
         <hr />
@@ -35,43 +37,47 @@ const BlogPostTemplate = ({
       <nav className="blog-post-nav">
         <ul
           style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            listStyle: 'none',
             padding: 0,
           }}
         >
           <li>
             {previous && (
-              <Link to={previous.fields?.slug||''} rel="prev">
-                ← {previous.frontmatter?.title}
+              <Link to={previous.fields?.slug || ''} rel="prev">
+                ←
+                {' '}
+                {previous.frontmatter?.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.fields?.slug||''} rel="next">
-                {next.frontmatter?.title} →
+              <Link to={next.fields?.slug || ''} rel="next">
+                {next.frontmatter?.title}
+                {' '}
+                →
               </Link>
             )}
           </li>
         </ul>
       </nav>
     </Layout>
-  )
+  );
 }
 
-export const Head = ({ data: { markdownRemark: post } }:PageProps<GatsbyTypes.Query>) => {
+export function Head({ data: { markdownRemark: post } }:PageProps<GatsbyTypes.Query>) {
   return (
     <Seo
-      title={post?.frontmatter?.title||''}
-      description={post?.frontmatter?.description || post?.excerpt||''}
+      title={post?.frontmatter?.title || ''}
+      description={post?.frontmatter?.description || post?.excerpt || ''}
     />
-  )
+  );
 }
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug(
@@ -111,4 +117,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

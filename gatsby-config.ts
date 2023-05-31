@@ -1,16 +1,16 @@
-import type { GatsbyConfig } from "gatsby";
+import type { GatsbyConfig } from 'gatsby';
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `T`,
-    siteUrl: `https://takashi-aihara.info`,
+    title: 'T',
+    siteUrl: 'https://takashi-aihara.info',
     author: {
-      name: `T`,
-      summary: `T info`,
+      name: 'T',
+      summary: 'T info',
     },
-    description: `T info`,
+    description: 'T info',
     social: {
-      twitter: `takashi__aihara`,
+      twitter: 'takashi__aihara',
     },
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
@@ -18,87 +18,87 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-    "gatsby-plugin-postcss",
-    "gatsby-plugin-mdx",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-image",
-    "gatsby-plugin-sitemap",
+    'gatsby-plugin-postcss',
+    'gatsby-plugin-mdx',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sitemap',
     {
-      resolve: "gatsby-plugin-google-gtag",
+      resolve: 'gatsby-plugin-google-gtag',
       options: {
-        "trackingIds": ["G-HY8ZR2YW2P"],
-      }
+        trackingIds: ['G-HY8ZR2YW2P'],
+      },
     },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        "icon": "src/images/icon.png"
-      }
+        icon: 'src/images/icon.png',
+      },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        "name": "images",
-        "path": "./src/images/"
+        name: 'images',
+        path: './src/images/',
       },
-      __key: "images"
+      __key: 'images',
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        "name": "pages",
-        "path": "./src/pages/"
+        name: 'pages',
+        path: './src/pages/',
       },
-      __key: "pages"
+      __key: 'pages',
     },
 
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 630,
             },
           },
           {
-            resolve: `gatsby-remark-responsive-iframe`,
+            resolve: 'gatsby-remark-responsive-iframe',
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
+              wrapperStyle: 'margin-bottom: 1.0725rem',
             },
           },
-          `gatsby-remark-prismjs`,
+          'gatsby-remark-prismjs',
         ],
       },
     },
     {
 
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `T info`,
-        short_name: `Tinfo`,
-        start_url: `/`,
-        background_color: `#ffffff`,
+        name: 'T info',
+        short_name: 'Tinfo',
+        start_url: '/',
+        background_color: '#ffffff',
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+        display: 'minimal-ui',
+        icon: 'src/images/icon.png', // This path is relative to the root of the site.
       },
     },
     {
-      resolve: "gatsby-plugin-typegen",
+      resolve: 'gatsby-plugin-typegen',
       options: {
         emitSchema: {
-          "src/__generated__/gatsby-schema.graphql": true,
-          "src/__generated__/gatsby-introspection.json": true
+          'src/__generated__/gatsby-schema.graphql': true,
+          'src/__generated__/gatsby-introspection.json': true,
         },
         emitPluginDocuments: {
-          "src/__generated__/gatsby-plugin-documents.graphql": true
-        }
-      }
+          'src/__generated__/gatsby-plugin-documents.graphql': true,
+        },
+      },
     },
 
     // {
@@ -151,7 +151,7 @@ const config: GatsbyConfig = {
     //   },
     // },
 
-  ]
+  ],
 };
 
 export default config;

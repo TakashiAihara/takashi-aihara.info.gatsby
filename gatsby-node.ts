@@ -3,18 +3,18 @@
  *
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
  */
-import { Actions, GatsbyNode } from "gatsby"
-import path from "path"
-import { createFilePath } from "gatsby-source-filesystem"
+import { Actions, GatsbyNode } from 'gatsby';
+import path from 'path';
+import { createFilePath } from 'gatsby-source-filesystem';
 
 // Define the template for blog post
-const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
+const blogPost = path.resolve('./src/templates/blog-post.tsx');
 
-export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions
+export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions;
 
   // Get all markdown blog posts sorted by date
-  const result = await graphql<{ allMarkdownRemark: GatsbyTypes.Query["allMarkdownRemark"]}>(`
+  const result = await graphql<{ allMarkdownRemark: GatsbyTypes.Query['allMarkdownRemark']}>(`
     query PaginationQuery {
       allMarkdownRemark(sort: { frontmatter: { date: ASC } }, limit: 1000) {
         nodes {
@@ -25,26 +25,26 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
         }
       }
     }
-  `)
+  `);
 
   if (result.errors) {
     reporter.panicOnBuild(
-      `There was an error loading your blog posts`,
-      result.errors
-    )
-    return
+      'There was an error loading your blog posts',
+      result.errors,
+    );
+    return;
   }
 
-  const posts = result.data?.allMarkdownRemark.nodes
+  const posts = result.data?.allMarkdownRemark.nodes;
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
   // `context` is available in the template as a prop and as a variable in GraphQL
-  if(!posts) return;
+  if (!posts) return;
   if (posts.length > 0) {
     posts.forEach((post, index) => {
-      const previousPostId = index === 0 ? null : posts[index - 1].id
-      const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+      const previousPostId = index === 0 ? null : posts[index - 1].id;
+      const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id;
 
       createPage({
         path: post.fields?.slug!,
@@ -54,27 +54,27 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
           previousPostId,
           nextPostId,
         },
-      })
-    })
+      });
+    });
   }
-}
+};
 
-export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
 
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+  if (node.internal.type === 'MarkdownRemark') {
+    const value = createFilePath({ node, getNode });
 
     createNodeField({
-      name: `slug`,
+      name: 'slug',
       node,
       value,
-    })
+    });
   }
-}
+};
 
-export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = async ({ actions }: { actions: Actions}) => {
-  const { createTypes } = actions
+export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = async ({ actions }: { actions: Actions}) => {
+  const { createTypes } = actions;
 
   // Explicitly define the siteMetadata {} object
   // This way those will always be defined even if removed from gatsby-config.js
@@ -112,5 +112,5 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     type Fields {
       slug: String
     }
-  `)
-}
+  `);
+};
