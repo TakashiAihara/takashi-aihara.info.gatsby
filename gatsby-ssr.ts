@@ -1,3 +1,3 @@
-export const onRenderBody = ({ setHtmlAttributes }:any) => {
-  setHtmlAttributes({ lang: 'en' });
-};
+export const onRenderBody = ({ setHtmlAttributes }: any) => {
+  setHtmlAttributes({ lang: "en" })
+}
