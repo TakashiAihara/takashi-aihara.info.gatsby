@@ -2,7 +2,7 @@
   "name": "takashi-aihara.info",
   "version": "1.0.0",
   "private": true,
-  "description": "T info",
+  "description": "About T",
   "author": "TakashiAihara <47384567+TakashiAihara@users.noreply.github.com>",
   "homepage": "https://takashi-aihara.info",
   "keywords": [
@@ -24,6 +24,7 @@
     "@fontsource-variable/montserrat": "^5.0.3",
     "@fontsource/merriweather": "^5.0.2",
     "@mdx-js/react": "^2.3.0",
+    "@react-icons/all-files": "^4.1.0",
     "autoprefixer": "^10.4.14",
     "gatsby": "^5.10.0",
     "gatsby-plugin-feed": "^5.10.0",
@@ -45,6 +46,7 @@
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-twitter-embed": "^4.0.4",
     "tailwindcss": "^3.3.2"
   },
   "devDependencies": {

@@ -2078,18 +2078,22 @@ input SiteSortInput {
 }
 
 type Social {
+  github: String
   twitter: String
 }
 
 input SocialFieldSelector {
+  github: FieldSelectorEnum
   twitter: FieldSelectorEnum
 }
 
 input SocialFilterInput {
+  github: StringQueryOperatorInput
   twitter: StringQueryOperatorInput
 }
 
 input SocialSortInput {
+  github: SortOrderEnum
   twitter: SortOrderEnum
 }
 

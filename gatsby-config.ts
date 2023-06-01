@@ -2,20 +2,18 @@ import type { GatsbyConfig } from "gatsby"
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: "T",
+    title: "About T",
     siteUrl: "https://takashi-aihara.info",
     author: {
       name: "T",
-      summary: "T info",
+      summary: "About T",
     },
-    description: "T info",
+    description: "About T",
     social: {
       twitter: "takashi__aihara",
+      github: "TakashiAihara",
     },
   },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-postcss",
@@ -76,8 +74,8 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "T info",
-        short_name: "Tinfo",
+        name: "About T",
+        short_name: "AboutT",
         start_url: "/",
         background_color: "#ffffff",
         // This will impact how browsers show your PWA/website

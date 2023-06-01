@@ -23490,6 +23490,18 @@
         "specifiedByURL": null,
         "fields": [
           {
+            "name": "github",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "twitter",
             "description": null,
             "args": [],
@@ -23515,6 +23527,18 @@
         "fields": null,
         "inputFields": [
           {
+            "name": "github",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "FieldSelectorEnum",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "twitter",
             "description": null,
             "type": {
@@ -23539,6 +23563,18 @@
         "fields": null,
         "inputFields": [
           {
+            "name": "github",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "twitter",
             "description": null,
             "type": {
@@ -23562,6 +23598,18 @@
         "specifiedByURL": null,
         "fields": null,
         "inputFields": [
+          {
+            "name": "github",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "SortOrderEnum",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
           {
             "name": "twitter",
             "description": null,
