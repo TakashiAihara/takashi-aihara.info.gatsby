@@ -9,7 +9,7 @@ type Props = Readonly<{
 }>
 
 function Layout({ location, title, children }: Props) {
-  const rootPath = `${PATH_PREFIX}/`
+  const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
 
