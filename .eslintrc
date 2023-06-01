@@ -4,17 +4,17 @@
     "es2021": true
   },
   "plugins": [
-	"prettier",
-	"react",
+    "prettier",
+    "react",
     "@typescript-eslint"
   ],
   "extends": [
     "plugin:react/recommended",
     "airbnb",
-	"prettier"
+    "airbnb-typescript",
+    "prettier"
   ],
   // "parser": "@typescript-eslint/parser",
-
   // "parserOptions": {
   //   "ecmaFeatures": {
   //     "jsx": true
@@ -22,6 +22,9 @@
   //   "ecmaVersion": 12,
   //   "sourceType": "module"
   // },
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "rules": {
     "prettier/prettier": "error",
     "camelcase": "off",
@@ -42,29 +45,52 @@
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
-        "components": ["Link"],
-        "specialLink": ["hrefLeft", "hrefRight"],
-        "aspects": ["invalidHref", "preferButton"]
+        "components": [
+          "Link"
+        ],
+        "specialLink": [
+          "hrefLeft",
+          "hrefRight"
+        ],
+        "aspects": [
+          "invalidHref",
+          "preferButton"
+        ]
       }
     ],
-
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [
       "error",
-      { "extensions": [".js", ".jsx", "ts", "tsx"] }
-    ],
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          "ts",
+          "tsx"
+        ]
+      }
+    ]
   },
   "overrides": [
     {
       "files": "**/*.+(ts|tsx)",
       "parser": "@typescript-eslint/parser",
-      "plugins": ["@typescript-eslint/eslint-plugin"],
-      "extends": ["plugin:@typescript-eslint/recommended", "prettier"],
+      "plugins": [
+        "@typescript-eslint/eslint-plugin"
+      ],
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+      ],
       "rules": {
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
-        "no-use-before-define": [0],
-        "@typescript-eslint/no-use-before-define": [1],
+        "no-use-before-define": [
+          0
+        ],
+        "@typescript-eslint/no-use-before-define": [
+          1
+        ],
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-var-requires": "off"
       }
