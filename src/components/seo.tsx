@@ -5,16 +5,16 @@
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
 
-import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 
 type Props = Readonly<{
-  description?:string;
-  title:string;
-  children?:React.ReactNode
+  description?: string
+  title: string
+  children?: React.ReactNode
 }>
 
-function Seo({ description, title, children }:Props) {
+function Seo({ description, title, children }: Props) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -28,11 +28,11 @@ function Seo({ description, title, children }:Props) {
           }
         }
       }
-    `,
-  );
+    `
+  )
 
-  const metaDescription = description || site.siteMetadata.description;
-  const defaultTitle = site.siteMetadata?.title;
+  const metaDescription = description ?? site.siteMetadata.description
+  const defaultTitle = site.siteMetadata?.title
 
   return (
     <>
@@ -44,13 +44,13 @@ function Seo({ description, title, children }:Props) {
       <meta name="twitter:card" content="summary" />
       <meta
         name="twitter:creator"
-        content={site.siteMetadata?.social?.twitter || ''}
+        content={site.siteMetadata?.social?.twitter ?? ""}
       />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={metaDescription} />
       {children}
     </>
-  );
+  )
 }
 
-export default Seo;
+export default Seo

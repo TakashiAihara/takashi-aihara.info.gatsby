@@ -1,30 +1,30 @@
-import { Link } from 'gatsby';
-import { WindowLocation } from '@reach/router';
-import React from 'react';
+import { Link } from "gatsby"
+import { WindowLocation } from "@reach/router"
+import React from "react"
 
 type Props = Readonly<{
-  location: WindowLocation;
-  title: string;
+  location: WindowLocation
+  title: string
   children?: React.ReactNode
 }>
 
-function Layout({ location, title, children }:Props) {
-  const rootPath = `${__PATH_PREFIX__}/`;
-  const isRootPath = location.pathname === rootPath;
-  let header;
+function Layout({ location, title, children }: Props) {
+  const rootPath = `${PATH_PREFIX}/`
+  const isRootPath = location.pathname === rootPath
+  let header
 
   if (isRootPath) {
     header = (
       <h1 className="main-heading">
         <Link to="/">{title}</Link>
       </h1>
-    );
+    )
   } else {
     header = (
       <Link className="header-link-home" to="/">
         {title}
       </Link>
-    );
+    )
   }
 
   return (
@@ -32,15 +32,11 @@ function Layout({ location, title, children }:Props) {
       <header className="global-header">{header}</header>
       <main>{children}</main>
       <footer>
-        ©
-        {' '}
-        {new Date().getFullYear()}
-        , Built with
-        {' '}
+        © {new Date().getFullYear()}, Built with{" "}
         <a href="https://www.gatsbyjs.com">Gatsby</a>
       </footer>
     </div>
-  );
+  )
 }
 
-export default Layout;
+export default Layout

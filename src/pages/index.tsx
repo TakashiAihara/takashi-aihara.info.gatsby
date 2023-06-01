@@ -1,13 +1,13 @@
-import React from 'react';
-import { Link, graphql, PageProps } from 'gatsby';
+import React from "react"
+import { Link, graphql, PageProps } from "gatsby"
 
-import Bio from '../components/bio';
-import Layout from '../components/layout';
-import Seo from '../components/seo';
+import Bio from "../components/bio"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
 
-function BlogIndex({ data, location }:PageProps<GatsbyTypes.Query>) {
-  const siteTitle = data.site?.siteMetadata?.title || 'Title';
-  const posts = data.allMarkdownRemark.nodes;
+function BlogIndex({ data, location }: PageProps<Queries.Query>) {
+  const siteTitle = data.site?.siteMetadata?.title ?? "Title"
+  const posts = data.allMarkdownRemark.nodes
 
   if (posts.length === 0) {
     return (
@@ -19,15 +19,15 @@ function BlogIndex({ data, location }:PageProps<GatsbyTypes.Query>) {
           gatsby-config.js).
         </p>
       </Layout>
-    );
+    )
   }
 
   return (
     <Layout location={location} title={siteTitle}>
       <Bio />
-      <ol style={{ listStyle: 'none' }}>
-        {posts.map((post) => {
-          const title = post.frontmatter?.title || post.fields?.slug;
+      <ol style={{ listStyle: "none" }}>
+        {posts.map(post => {
+          const title = post.frontmatter?.title ?? post.fields?.slug
 
           return (
             <li key={post.fields?.slug}>
@@ -38,7 +38,7 @@ function BlogIndex({ data, location }:PageProps<GatsbyTypes.Query>) {
               >
                 <header>
                   <h2>
-                    <Link to={post.fields?.slug || ''} itemProp="url">
+                    <Link to={post.fields?.slug ?? ""} itemProp="url">
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
@@ -47,21 +47,22 @@ function BlogIndex({ data, location }:PageProps<GatsbyTypes.Query>) {
                 <section>
                   <p
                     dangerouslySetInnerHTML={{
-                      __html: post.frontmatter?.description || post.excerpt || '',
+                      __html:
+                        post.frontmatter?.description ?? post.excerpt ?? "",
                     }}
                     itemProp="description"
                   />
                 </section>
               </article>
             </li>
-          );
+          )
         })}
       </ol>
     </Layout>
-  );
+  )
 }
 
-export default BlogIndex;
+export default BlogIndex
 
 /**
  * Head export to define metadata for the page
@@ -69,7 +70,7 @@ export default BlogIndex;
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
 export function Head() {
-  return <Seo title="All posts" />;
+  return <Seo title="All posts" />
 }
 
 export const pageQuery = graphql`
@@ -93,4 +94,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
