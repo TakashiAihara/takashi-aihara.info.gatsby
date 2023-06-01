@@ -107,6 +107,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 
     type Social {
       twitter: String
+      github: String
     }
 
     type MarkdownRemark implements Node {

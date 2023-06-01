@@ -2816,18 +2816,22 @@ type SiteSortInput = {
 };
 
 type Social = {
+  readonly github: Maybe<Scalars['String']>;
   readonly twitter: Maybe<Scalars['String']>;
 };
 
 type SocialFieldSelector = {
+  readonly github: InputMaybe<FieldSelectorEnum>;
   readonly twitter: InputMaybe<FieldSelectorEnum>;
 };
 
 type SocialFilterInput = {
+  readonly github: InputMaybe<StringQueryOperatorInput>;
   readonly twitter: InputMaybe<StringQueryOperatorInput>;
 };
 
 type SocialSortInput = {
+  readonly github: InputMaybe<SortOrderEnum>;
   readonly twitter: InputMaybe<SortOrderEnum>;
 };
 
@@ -2857,19 +2861,10 @@ type WebPOptions = {
   readonly quality: InputMaybe<Scalars['Int']>;
 };
 
-type BioQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type SocialButtonsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type BioQueryQuery = { readonly site: { readonly siteMetadata: { readonly author: { readonly name: string | null, readonly summary: string | null } | null, readonly social: { readonly twitter: string | null } | null } | null } | null };
-
-type BlogPostBySlugQueryVariables = Exact<{
-  id: Scalars['String'];
-  previousPostId: InputMaybe<Scalars['String']>;
-  nextPostId: InputMaybe<Scalars['String']>;
-}>;
-
-
-type BlogPostBySlugQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null } | null } | null, readonly markdownRemark: { readonly id: string, readonly excerpt: string | null, readonly html: string | null, readonly frontmatter: { readonly title: string | null, readonly date: string | null, readonly description: string | null } | null } | null, readonly previous: { readonly fields: { readonly slug: string | null } | null, readonly frontmatter: { readonly title: string | null } | null } | null, readonly next: { readonly fields: { readonly slug: string | null } | null, readonly frontmatter: { readonly title: string | null } | null } | null };
+type SocialButtonsQuery = { readonly site: { readonly siteMetadata: { readonly social: { readonly twitter: string | null, readonly github: string | null } | null } | null } | null };
 
 
 }

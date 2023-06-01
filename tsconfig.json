@@ -95,9 +95,8 @@
   },
   "include": [
     "./src/**/*",
-    "./gatsby-node.ts",
-    "./gatsby-config.ts",
-    "./gatsby-ssr.ts",
+    "./*.ts",
+    "./*.tsx",
     "./plugins/**/*",
     "./.storybook/*"
   ]
