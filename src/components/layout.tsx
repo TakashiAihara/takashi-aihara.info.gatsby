@@ -9,7 +9,7 @@ type Props = Readonly<{
   children?: React.ReactNode
 }>
 
-function Layout({ location, title, children }: Props) {
+function Layout({ location, children }: Props) {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
 
