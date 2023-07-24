@@ -5,7 +5,6 @@
   "description": "About T",
   "author": "TakashiAihara <47384567+TakashiAihara@users.noreply.github.com>",
   "homepage": "https://takashi-aihara.info",
-  "packageManager": "pnpm@8.6.9",
   "keywords": [
     "gatsby"
   ],
